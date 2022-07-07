@@ -10,6 +10,7 @@
 3. [CSS 기본](#CSS-기본)
    1. [스타일시트](#스타일시트)
    2. [CSS 기본 선택자](#CSS-기본-선택자)
+   2. [CSS 속성](#CSS-속성)
 
 
 ## HTML, CSS 기본 개념
@@ -163,4 +164,79 @@
     }
     ```
 
-    
+
+
+
+#### CSS 속성
+
+* **배경**과 관련된 속성
+  * background-color : 배경색
+  * background-image:url() : 배경이미지
+  * background-repeat : 반복처리 (no-repeat, repeat-x, repeat-y)
+  * background-position : left, center, right, top, middle, bottom, 백분율
+  * background-attachment : 배경 고정 (fixed, scroll)
+  * background-size : px, %
+  * opacity : 투명도 (0~1)
+  * background 로 묶어서 한번에 지정 가능
+* 그림자, 그라데이션
+  * text-shadow:왼/오른px  위/아래px  그림자색상; : 글자에 그림자 설정
+  * box-shadow:위와 동일 : 박스에 그림자 설정
+  * 그라데이션 : http://colorzilla.com/gradient-editor 를 사용
+* **텍스트** 관련 스타일
+  * font-size : 글자 크키 (px[기본16 px], pt, cm, mm, in, em[현재글자크기 기준으로 정함])
+  * font-family : 글꼴 (여러개 지정가능)
+  * color : 글자 색상
+  * font-weight : 글자 굵기 (normal, bold, bolder, lighter...)
+  * text-decoration : linethrough(취소선), underline(밑줄), overline(윗줄), none(선없음)
+  * text-align : 텍스트 정렬 (start,end,left,right,center..)
+  * line-height : 문단의 줄 높이 (height의 값과 똑같이 지정하면 세로 정렬 가능)
+* **테두리 (border)**
+  * 4개 방향 값 지정 순서 : top->right->bottom->left
+  * border-style : 테두리 스타일
+    * solid(실선), dotted(점선), dashed(--), double(이중선), none(테두리 없음), groove(홈), inset(볼록), hidden(숨기기)
+  * border-width : 테두리 두께 (px)
+  * border-color : rgb코드, 컬러명
+  * border-radius : 테두리 둥글게
+  * border로 묶어서 한번에 지정 가능
+* **여백 (margin, padding)**
+  * margin : 테두리 밖의 여백
+    * 가운데 정렬하기 : margin-left와 margin-right의 속성값을 auto로 지정
+    * 요소 중첩 : 요소를 세로로 배치할 때, 마진과 마진이 만날 때 마진이 큰 쪽으로 겹쳐지는 것
+  * padding : 테두리와 콘텐츠 사이의 여백
+* 레이아웃 만들기
+  * display : 요소의 배치 방법 , 선택된 객체를 보여주거나 숨길 수 있음, 숨김 상태에서 공간 반납
+    * block, inline, inline-block, none(숨김)
+  * visibility : 선택된 객체를 보여주거나 숨길 수 있음, 숨겨져도 원래 공간 유지
+    * visible, hidden
+  * float : 정렬 (left, right, none)
+* 위치 지정하기
+  * position : 요소들을 배치하기
+    * static : 기본값, 좌표x
+    * absolute : 페이지 시작점 기준 이동, 원래 공간 없어짐, 감싸고 있는 태그의 포지션에 따라 기준이 달라짐
+    * relative : 원래 자리에서 이동, 공간 유지
+    * fixed : 지정한 위치에 고정
+  * left, top, right, bottom 사용하여 위치 지정
+* 목록 스타일
+  * life-style-type : list 헤더 설정
+    * none(기호 없음), disc, circle, square, decimal....
+* 속성선택자
+  * 지정한 속성을 가진 요소를 찾아 스타일 적용
+  * =
+  * $= : 특정값으로 끝나는 태그를 선택
+  * ^= : 특정값으로 시작하는 태그를 선택
+  * *= : 특정값의 일부가 일치하는 태그를 선택
+* 가상 클래스 선택자 
+  * 사용자 동작에 반응
+    * link : 방문하지 않은 링크에 스타일 적용
+    * visited : 방문한 링크에 스타일 적용
+    * hover : 웹요소에 마우스 커서를 올려놓았을 때 스타일 적용
+    * active : 마우스를 클릭했을 때 스타일 적용
+    * focus : 웹 요소에 초점이 맞춰졌을 때 스타일 적용
+  * 요소 상태에 따른 선택자 (상태선택자)
+    * target : 앵커로 연결된 부분에 스타일 적용
+    * enabled, disabled : 요소의 사용 여부에 따라 스타일 적용(활성화, 비활성화)
+    * checked : 라디오 버튼이나 체크 박스에 체크했을 때 스타일 적용
+* 가상 요소
+  * ::first-line : 첫번째 줄에 스타일 적용
+  * ::first-letter : 첫번째 문자에 스타일 적용
+  * ::selection : 선택 영역에 스타일 적용
