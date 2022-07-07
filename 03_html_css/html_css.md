@@ -78,13 +78,11 @@
   * `<rowspan>` : 행 합치기
   * `border` : 경계선
   * `<colgroup>, <col>` : column을 그룹으로 만드는 태그
-
 * `<iframe>` : 웹페이지 내에 웹페이지 표시
   * `src` : 파일명
   * `<width>, <height>` : 폭, 높이
   * `<frameborder>` : 구분선
   * `<scrolling>` : 스크롤바 (yes[기본값], no)
-
 * `<meta>` : 페이지에 대한 설명을 기술
   * `name` 속성 
     * `description` : 페이지에 대한 설명
@@ -94,7 +92,6 @@
   * `http-equiv` 속성
     * `refresh` : 새로고침(초단위)
     * `Refresh` : 일정시간이 지나면 자동으로 페이지 이동
-
 * `<audio>`, `<video>` : 음성파일, 영상파일 재생하기
   * `src` : 재생할 사운드,영상 파일
   * `controls` : 컨트롤바
@@ -103,24 +100,24 @@
   * `preload` : 전송완료 후 재생
   * `width, height` : 플레이어의 너비와 높이
   * `poster="파일이름"` : video태그에서 사용, 비디오 재생 전까지 화면에 표시될 이미지 지정
-
 * `<form>` : 폼을 만드는 기본 태그
   * `method` : 데이터 전송방식 (get-공개[기본값], post-숨김)
   * `action` : 서버페이지 파일명
   * `<input>` 태그의 `type` 속성들
     * text, passwords, search, url, email, tel, checkbox, radio, number, color, range, date, month, week, time, datetime, datetime-local, **submit**(submit이 발생하면 action이 실행됨), reset, **image**(submit버튼과 같은 기능), button, file, **hidden**(사용자에게는 보이지 않지만 서버로 넘겨주는 값이 있는 필드를 만들때)
-
   * placeholder : 입력란에 표시하는 힌트, 필드를 입력하면 사라짐
   * required : 필수 입력 필드
   * autofocus : 페이지를 불러오자마자 원하는 폼 요소에 마우스 커서 표시
   * readonly : 입력 금지
   * textarea : 여러줄의 텍스트 
     * cols, rows : 칸, 줄 지정
-
   * `<select>, <outgroup>, <option>` : 여러 옵션 중 선택, 드롭다운 목록
     * size : 드롭다운 항목의 개수 (select 태그 속성) 
     * multiple : 목록에서 둘 이상의 항목을 선택할 때 사용 (select 태그 속성)
     * label : 그룹 이름 (outgroup 태그 속성)
+* oncontextmenu : 마우스 오른쪽버튼 메뉴 제어
+* onselectstart, ondragstart  : 드래그 시작 불가능
+* ondragend  : 드래그 종료 불가능
 
 
 
@@ -169,7 +166,8 @@
 
 #### CSS 속성
 
-* **배경**과 관련된 속성
+* **배경과 관련된 속성**
+
   * background-color : 배경색
   * background-image:url() : 배경이미지
   * background-repeat : 반복처리 (no-repeat, repeat-x, repeat-y)
@@ -178,11 +176,15 @@
   * background-size : px, %
   * opacity : 투명도 (0~1)
   * background 로 묶어서 한번에 지정 가능
-* 그림자, 그라데이션
+
+* **그림자, 그라데이션**
+
   * text-shadow:왼/오른px  위/아래px  그림자색상; : 글자에 그림자 설정
   * box-shadow:위와 동일 : 박스에 그림자 설정
   * 그라데이션 : http://colorzilla.com/gradient-editor 를 사용
-* **텍스트** 관련 스타일
+
+* **텍스트 관련 스타일**
+
   * font-size : 글자 크키 (px[기본16 px], pt, cm, mm, in, em[현재글자크기 기준으로 정함])
   * font-family : 글꼴 (여러개 지정가능)
   * color : 글자 색상
@@ -190,7 +192,9 @@
   * text-decoration : linethrough(취소선), underline(밑줄), overline(윗줄), none(선없음)
   * text-align : 텍스트 정렬 (start,end,left,right,center..)
   * line-height : 문단의 줄 높이 (height의 값과 똑같이 지정하면 세로 정렬 가능)
+
 * **테두리 (border)**
+
   * 4개 방향 값 지정 순서 : top->right->bottom->left
   * border-style : 테두리 스타일
     * solid(실선), dotted(점선), dashed(--), double(이중선), none(테두리 없음), groove(홈), inset(볼록), hidden(숨기기)
@@ -198,34 +202,46 @@
   * border-color : rgb코드, 컬러명
   * border-radius : 테두리 둥글게
   * border로 묶어서 한번에 지정 가능
+
 * **여백 (margin, padding)**
+
   * margin : 테두리 밖의 여백
     * 가운데 정렬하기 : margin-left와 margin-right의 속성값을 auto로 지정
     * 요소 중첩 : 요소를 세로로 배치할 때, 마진과 마진이 만날 때 마진이 큰 쪽으로 겹쳐지는 것
   * padding : 테두리와 콘텐츠 사이의 여백
-* 레이아웃 만들기
+
+* **레이아웃 만들기**
+
   * display : 요소의 배치 방법 , 선택된 객체를 보여주거나 숨길 수 있음, 숨김 상태에서 공간 반납
     * block, inline, inline-block, none(숨김)
   * visibility : 선택된 객체를 보여주거나 숨길 수 있음, 숨겨져도 원래 공간 유지
     * visible, hidden
   * float : 정렬 (left, right, none)
-* 위치 지정하기
+
+* **위치 지정하기**
+
   * position : 요소들을 배치하기
     * static : 기본값, 좌표x
     * absolute : 페이지 시작점 기준 이동, 원래 공간 없어짐, 감싸고 있는 태그의 포지션에 따라 기준이 달라짐
     * relative : 원래 자리에서 이동, 공간 유지
     * fixed : 지정한 위치에 고정
   * left, top, right, bottom 사용하여 위치 지정
-* 목록 스타일
+
+* **목록 스타일**
+
   * life-style-type : list 헤더 설정
     * none(기호 없음), disc, circle, square, decimal....
-* 속성선택자
+
+* **속성선택자**
+
   * 지정한 속성을 가진 요소를 찾아 스타일 적용
   * =
   * $= : 특정값으로 끝나는 태그를 선택
   * ^= : 특정값으로 시작하는 태그를 선택
   * *= : 특정값의 일부가 일치하는 태그를 선택
-* 가상 클래스 선택자 
+
+* **가상 클래스 선택자** 
+
   * 사용자 동작에 반응
     * link : 방문하지 않은 링크에 스타일 적용
     * visited : 방문한 링크에 스타일 적용
@@ -236,7 +252,30 @@
     * target : 앵커로 연결된 부분에 스타일 적용
     * enabled, disabled : 요소의 사용 여부에 따라 스타일 적용(활성화, 비활성화)
     * checked : 라디오 버튼이나 체크 박스에 체크했을 때 스타일 적용
-* 가상 요소
+
+* **가상 요소**
+
   * ::first-line : 첫번째 줄에 스타일 적용
   * ::first-letter : 첫번째 문자에 스타일 적용
   * ::selection : 선택 영역에 스타일 적용
+
+* **구조선택자**
+
+  * nth-child(2n) : 짝수번째
+  * nth-child(2n+1) : 홀수번째
+  * nth-child(3n) : 3의배수번째
+  * first-child : 첫번째 객체
+  * last-child : 마지막 객체
+
+* **연결선택자**
+
+  * 자식 선택자 : 자식 요소에 스타일 적용 (두요소 사이 부등호(>)표시)
+
+  * 후손 선택자 : 부모 요소에 포함된 모든 하위 요소에 적용, 자식 요소뿐 아니라 손자, 손자의 손자요소 등 모든 하위요소까지 적용 (상위요소 하위요소)
+
+  * 동위 선택자 
+
+    * 선택자A+선택자B : 선택자A의 바로 다음에 있는 선택자B를 선택
+    * 선택자A~선택자B : 선택자A 다음의 모든 선택자B를 선택 (다른 태그가 나올때까지)
+
+    
