@@ -290,7 +290,7 @@
 
   * viewport : 기기 화면에 맞춰 확대/축소해서 내용 표시
 
-    * <meta name="viewport" content="width=device-width, initial-scale=1">
+    * `<meta name="viewport" content="width=device-width, initial-scale=1">`
 
     * width, height, user-scalable, initial-scale
 
