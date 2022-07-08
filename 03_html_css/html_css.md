@@ -270,12 +270,44 @@
 * **연결선택자**
 
   * 자식 선택자 : 자식 요소에 스타일 적용 (두요소 사이 부등호(>)표시)
-
   * 후손 선택자 : 부모 요소에 포함된 모든 하위 요소에 적용, 자식 요소뿐 아니라 손자, 손자의 손자요소 등 모든 하위요소까지 적용 (상위요소 하위요소)
-
   * 동위 선택자 
 
     * 선택자A+선택자B : 선택자A의 바로 다음에 있는 선택자B를 선택
     * 선택자A~선택자B : 선택자A 다음의 모든 선택자B를 선택 (다른 태그가 나올때까지)
+  
+* **transition-duration**
 
-    
+  * 객체의 움직임 속도를 정한다 (초단위)
+
+* **overflow** 
+
+  * auto : 컨텐츠가 보더보다 크면 보더 안에 담길때 스크롤이 생김
+  * scroll : 항상 스크롤바 존재
+  * hidden : 보더보다 큰 부분은 잘림(숨김)
+
+* **반응형 설정하기**
+
+  * viewport : 기기 화면에 맞춰 확대/축소해서 내용 표시
+
+    * <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    * width, height, user-scalable, initial-scale
+
+  * media 쿼리 : 접속하는 장치에 따라 특정한 CSS 스타일 사용하는 방법
+
+    * display 종류 : all, screen, print, tv, projection...
+    * 예시 : @media all and (min-width:320px) and (max-width:600px)
+
+* **시맨틱 태그**
+
+  * header : 헤더 영역, 사이트 전체의 헤더 또는 특정 영역의 헤더
+  * nav : 내비게이션 영역, 사이트 메뉴
+  * main : 웹 문서의 핵심 내용, 한번만 사용
+  * article : 독립된 웹 콘텐츠 항목, section 태그 포함 가능
+  * section : 콘텐츠 영역, 몇개의 콘텐츠를 묶는 용도로 사용
+  * aside : 본문 내용 외 왼쪽이나 오른쪽, 또는 아래쪽 사이드 바 표시
+  * footer : 사이트 제작 정보나 저작권 정보, 연락처 등
+  * div : 소스를 묶는 용도, 영역을 구별하거나 스타일 적용하기 위해
+
+​	
