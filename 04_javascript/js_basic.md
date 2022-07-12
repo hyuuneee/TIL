@@ -7,8 +7,14 @@
 2. [JS 사용하기](#JS-사용하기)
    1. [배열](#배열)
    2. [날짜와 시간](#날짜와-시간)
-   3. [window](#window)
-   4. [setInterval](#setInterval)
+   3. [setInterval](#setInterval)
+   4. [setTimeout](#setTimeout)
+3. [JS 내장객체](#JS-내장객체)
+   1. [window](#window)
+   2. [document](#document)
+   3. [location](#location)
+
+4. [JS Event (이벤트)](#JS-Event-(이벤트))
 
 
 ## Javascript
@@ -102,6 +108,23 @@
 * **날짜 변경하기** : `var now1 = new Date("2022.10.23");`
 * getFullYear():년 / getMonth():월 / getDate():일 / getHours():시 / getMinutes():분 / getSeconds():초 / getDay():요일 (일요일-0,월요일-1...)
 
+### setInterval
+
+* 설정한 시간 간격으로 함수가 호출된다. (함수 반복 시행) 
+* **setInterval("호출할 함수명", 밀리초);**
+* **clearInterval(변수이름)** : interval 중지
+  * 참고: 이벤트 --> onmouseover : 마우스 커서가 올라갔을때 , onmouseout : 커서가 나갔을때
+
+### setTimeout
+
+* 설정한 시간 간격으로 함수 반복 실행한다.
+* **setTimeout('호출할 함수명', 밀리초)**
+* **clearTimeout(timeout객체)** : 반복 호출 중지
+
+
+
+## JS 내장객체
+
 ### window
 
 * **팝업창 만들기**
@@ -109,6 +132,7 @@
   * window.open("새창에 띄울 파일명", "창이름", "옵션:width, height, left, top...")
   * `win = window.open("popup.html","w","width=400px, height=600px, left=200px, top=200px");`
   * 창이름이 없으면 새창에 팝업창이 반복적으로 만들어진다.
+  * window.close(), self.close(); : 창닫기
 
 * **팝업창 이동하기**
 
@@ -140,9 +164,51 @@
   * 테두리와 제목을 제외한 폭과 높이(컨텐츠 영역) : window.innerWidth, window.innerHeight
   * screen의 폭과 높이 : screen.width, screen.height
 
-### setInterval
+* **scroll(스크롤)**
 
-* 설정한 시간 간격으로 함수가 호출된다. (함수 반복 시행) 
-* **setInterval("호출할 함수명", 밀리초);**
-* **clearInterval(변수이름)** : interval 중지
-  * 참고: 이벤트 --> onmouseover : 마우스 커서가 올라갔을때 , onmouseout : 커서가 나갔을때
+  * 스크롤 이동하기(상대위치) : window.scrollBy(x,y)
+  * 스크롤의 위치 
+    * 세로 스크롤 : window.scrollY, document.documentElement.scrollTop
+    * 가로 스크롤 : window.scrollX
+  * 스크롤의 높이 : document.body.clientHeight, document.body.scrollHeight
+
+* **cookie** 
+
+  * 쿠키정보를 확인하여 팝업창 띄우기 (쿠키정보가 존재하면 팝업을 띄우지 않음)
+  * `var 변수명 = "name=value;path=/;expires=쿠키를 만료기간;...."`
+  * document.cookie = 변수명; -> 쿠키 기록되는 시점
+
+### Document
+
+* document의 다양한 메서드
+  * document.title : 제목 설정하기
+  * document.location / document.URL : 프로토콜, URL,  port, 경로, 파일명
+  * document.domain : 도메인
+  * document.lastModified : 마지막 수정일시
+  * document.bgColor : 배경색 
+  * document.linkColor/alinkColor/vlinkColor : 방문하지 않은 링크, 클릭하고 있는 링크, 방문한 링크 컬러 설정
+  * document.cookie : 쿠키 저장
+  * document.getElementById('id'), querySelector(#id) : 아이디 선택
+  * document.getElementsByTagName('tag')[선택 태그의 인덱스] : 태그 선택
+  * document.getElementsByClassName('class')[선택 클래스 인덱스] : 클래스 선택
+
+### Location
+
+* URL 주소가 있는 부분을 뜻한다.
+* location.protocol
+* location.hostname
+* location.port
+* location.host : hostname+port
+* location.reload : 현재 페이지 재실행
+* **location.href="이동할 사이트"** : 페이지 이동
+
+## JS Event (이벤트)
+
+* **onclick** : 마우스 클릭하면 이벤트 발생
+* **onmouseover** : 마우스가 객체에 들어가면 이벤트 발생 (하위객체마다 이벤트 각각 발생함)
+* **onmouseout** : 마우스가 객체에서 나오면 이벤트 발생 (하위객체마다 이벤트 발생)
+* **onmouseenter** : 마우스가 객체에 들어가면 이벤트 발생 (하위객체에 이벤트 발생 안함)
+* **onmouseleave** : 마우스가 객체에서 나오면 이벤트 발생 (하위객체에 이벤트 발생 안함)
+* **onmousedown** : 마우스를 누른 상태일 때 이벤트 발생
+* **onmouseup** : 마우스를 누른 후 놓으면 이벤트 발생
+* **onmousemove** : 마우스를 움직이면 이벤트 발생
