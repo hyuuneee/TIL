@@ -13,8 +13,8 @@
    1. [window](#window)
    2. [document](#document)
    3. [location](#location)
-
 4. [JS Event (이벤트)](#JS-Event-(이벤트))
+5. [유효성검사](#유효성검사)
 
 
 ## Javascript
@@ -212,3 +212,37 @@
 * **onmousedown** : 마우스를 누른 상태일 때 이벤트 발생
 * **onmouseup** : 마우스를 누른 후 놓으면 이벤트 발생
 * **onmousemove** : 마우스를 움직이면 이벤트 발생
+* **onfocus** : 컴퍼넌트에 커서가 들어가면 이벤트 발생
+* **onblur** : 컴퍼넌트에서 커서가 나가면 이벤트 발생
+* **onkeydown, onkeyrelease** : 키를 누른 상태에서 이벤트 발생
+* **onkeyup, onkeypress** : 키를 누른 후 놓으면 이벤트 발생
+* **onchange** : value의 값이 변경되면 이벤트 발생
+* **onload** : body가 로딩이 완료되면 이벤트 발생
+* **onresize** : 크기가 변경되면 이벤트 발생
+* **onsubmit** : 값이 true이면 action으로 이동하는 이벤트 발생(?)
+* **event 내장객체**
+  * event.keycode : 아스키코드 값으로로 반환
+  * event.returnValue : true / false
+
+## 유효성검사
+
+* 유효성검사를 통하여 사용자가 회원가입 정보를 잘못 입력하는 경우를 사전에 방지할 수 있다.
+
+* **작성 방법**
+
+  * ^ : 처음부터 / $ : 마지막까지
+
+  * 형식 : /^[사용할 문자]{문자길이}$/
+
+  * ```
+    //8~12글자 사이, 첫번째는 영어, 영어/숫자/$/_만 허용
+    reg = /^[A-Za-z]{1}[A-Za-z0-9_$]{7,11}$/;
+    ```
+
+  * ```
+    //2-10글자, 한글
+    reg = /^[가-힣]{2,10}$/;
+    ```
+
+  * **\w** : 영어대소문자, 숫자, $, _
+
