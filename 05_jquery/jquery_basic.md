@@ -5,6 +5,8 @@
    1. [선택자](#선택자)
    2. [객체](#객체)
    3. [이벤트](#이벤트)
+   4. [efftect](#effect)
+   5. [JQuery/JS/CSS](#JQuery/JS/CSS)
 
 ## JQuery란?
 
@@ -229,4 +231,133 @@
     	$(this).addClass('s2');
     })
     ```
+
+* **key 이벤트**
+
+  * keyup, keydown, keypress, keyrelease
+
+  * ```
+    $(선택자).keyup(function(){
+    	var cnt = 100 - $(선택자).val().length;
+    	$("#cnt").text(cnt+'');	
+    })
+    ```
+
+* **trigger()**
+
+  * 이벤트 강제로 발생시키기
+
+  * ```
+    setInterval(function(){
+    	$(선택자).trigger('click');
+    }, 1000)
+    ```
+
+### effect
+
+* **hide() : 폭, 높이 점점 흐리게 숨기기**
+
+  * hide(사라지는 속도[slow,fast,normal,밀리초], 콜백함수)
+
+* **show(속도) : 숨겨진걸 보여주기**
+
+* **toggle(속도) : 숨기고 보여주기 반복 실행**
+
+* **fadeOut(속도) : 점점 흐리게 숨기기**
+
+* **fadeIn(속도) : 점점 진하게 나타남**
+
+* **fadeToggle(속도) : 흐리게와 진하게 반복 실행**
+
+* **slideUp(속도) : 높이 줄어들면서 숨기기**
+
+* **slideDown(속도) : 높이 늘어나면서 나타남**
+
+* **slideToggle(속도) : 높이 줄어듦과 나타남 반복 실행**
+
+* **animate() : 객체를 이동시키기**
+
+  * animate({JSon형식으로 속성 설정}, 속도)
+  * 속성 : marginLeft, width, marginTop, opacity, marginRight  ....
+  * delay(시간) : 출발을 지연시킴
+  * $(this).stop() : animate 중지시키기
+
+* **easing : 움직이는 모양**
+
+  * http://jqueryui.com/easing/ 에서 easing 종류 확인 가능
+
+  * easeOutBounce, easeInBounce, easeOutBack .....
+
+  * ```
+    $("img:first").animate({marginLeft:"1200px"},6000,"easeOutBounce");
+    ```
+
+
+
+## JQuery/JS/CSS
+
+### ckeditor
+
+* 글 작성 시 사용할 수 있는 editor
+
+* textarea에 작성한 문자를 html코드로 변환하여 인식
+
+* https://ckeditor.com/ckeditor-4/download/에서 다운로드
+
+* getData() : ckeditor로 셋팅된 textarea의 값을 가져오는 함수
+
+  * ```
+    CKEDITOR.instances.content.getData()
+    ```
+
+### Innerfade
+
+* http://gist.github.com/coolniikou/665255 에서 다운로드
+* 속성 : {animationtype : 'slide, fade', speed : 'slow, fast, normal, 밀리초', timeout  : 대기시간, type : 'random, sequence, random_start' ....}
+
+### bxslider
+
+* https://github.com/stevenwanderski/bxslider-4 에서 다운로드
+* 속성
+  * mode : 'horizontal(기본값, vertical, fade'
+  * slideWidth : 슬라이드 폭
+  * slideHeight : 슬라이드 높이
+  * speed : 속도
+  * auto : true(자동시작), false(기본값)
+  * randomStart : true(랜덤시작), false(기본값)
+  * captions : title속성의 값을 설명으로 표시 true, false(기본)
+  * infiniteLoop : true(반복여부), false
+  * hideControlOnEnd : true(처음과 마지막에 좌우컨트롤 표시안함) , false(표시)
+  * useCSS: true(easing 사용안함), false(사용)
+  * easing : 'easing 종류'
+  * onSliderLoad : function(){} -> slide가 로딩이 완료되면 호출되는 콜백함수
+  * onSlideAfter: function(){} -> slide가 움직인 후 호출되는 콜백함수
+
+### accordion
+
+* http://github.com/alaingoga 에서 다운로드
+* 속성
+  * position : 'horizontal, vertical'
+  * openItem : 기본선택목록, index위치의 내용이 크게 나옴
+  * openDim : 확장된 목록의 크기
+  * closeDim : 닫힌 목록의 크기
+  * width : 전체 폭 (horizontal에는 적용안됨)
+  * height : 전체 높이 (vertical에는 적용안됨)
+  * duration : 전환 속도
+  * effect : easing 효과
+  * border 
+  * color
+
+### dialog/datepicker
+
+* jquery-ui를 통해 사용
+* dialog : 다이얼로그 창
+  * $(선택자).dialog('open') : 다이얼로그 창 열기
+  * autoOpen : 실행시 자동열림 true(기본), false
+  * modal : 창이 떠있을때 뒷배경 사용금지(true), 사용허용(false)
+* datepicker : 날짜입력박스
+  * dateFormat : 'yy년 mm월 dd일' , 'yy-mm-dd'
+  * numberOfMonths : 한번에 보일 월의 수
+
+
 
