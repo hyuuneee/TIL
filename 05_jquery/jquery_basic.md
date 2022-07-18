@@ -6,7 +6,7 @@
    2. [객체](#객체)
    3. [이벤트](#이벤트)
    4. [efftect](#effect)
-   5. [JQuery/JS/CSS](#JQuery/JS/CSS)
+3. [JQuery/JS/CSS](#JQuery/JS/CSS)
 
 ## JQuery란?
 
