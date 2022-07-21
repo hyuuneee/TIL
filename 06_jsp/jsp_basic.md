@@ -387,3 +387,144 @@
     </html>
     ```
 
+### JSTL (JSP Standard Tag Library)
+
+* 사용법 : JSTL은 라이브러리이기 때문에 지시부에 추가해줘야 한다.
+
+  * ```
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+    ```
+
+  * core 태그 라이브러리를 사용하는 선언문이다. (prefix="c")
+
+* **set, remove 태그** : 변수의 선언 및 삭제
+
+  * ```
+    //변수 선언하기
+    
+    <%
+     int a = 123;
+    %>
+    
+    <c:set var="num" value="<%=a%>"/>
+    <c:set var="no" value="${456}"/>
+    <c:set var="name">홍길동</c:set>
+    
+    //변수 사용하기
+    num = ${num}
+    no = ${no}
+    name = ${name}
+    
+    //데이터 request하기 : param.변수
+    <c:set var="name" value="${param.name}"/>
+    ```
+
+  * ```
+    //변수 삭제하기
+    
+    <c:remove var="no"/>
+    ```
+
+* **if 태그** : 조건문 사용하기
+
+  * ```
+    <c:set var="x" value="${10}"/>
+    <c:set var="y" value="${5}"/>
+    
+    <c:if test="${x>y}">
+    	조건문이 참일때 실행된다....
+    </c:if>
+    ```
+
+* **forEach 태그** : 반복문 사용하기
+
+  * ```
+    //숫자를 이용한 반복문
+    //					시작      종료     증가(생략시 1씩 증가)
+    <c:forEach var="n" begin="2" end="9" step="2">
+    	%{n}
+    </c:forEach>
+    
+    //배열을 이용한 반복문
+    <%
+    	int arr[] = {23,43,5,65}
+    %>
+    <c:forEach var="date" items="<%=arr%>">
+    	[${data}]
+    </c:forEach>
+    
+    //컬렉션 : ArrayList를 이용한 반복문
+    <%
+    	List<String> lst = new ArrayList<String>();
+    	lst.add("홍길동");
+    	lst.add("유재석");
+    	lst.add("김연아");
+    %>
+    <c:forEach var="name" items="<%=lst%>">
+    	[${name}]
+    </c:forEach>
+    
+    //Map을 이용한 반복문
+    <%
+    	HashMap<String,String> hm = new HashMap<String,String>();
+    	hm.put("name", "홍길동");
+    	hm.put("addr", "서울시 영등포구");
+    	hm.put("tel", "010-2334-2543");
+    %>
+    <c:forEach var="mapData" items="<%=hm%>">
+    	key : ${mapData.key}, value : ${mapData.value}
+    </c:forEach>
+    ```
+
+* **forTokens 태그** : 문자열을 특정문자로 조각내기
+
+  * ```
+    <c:forTokens var="t" items="빨강색,파랑색,,노랑색.보라색.오렌지색-갈색" delims=",.-">
+    	[${t}]
+    </c:forTokens>
+    ```
+
+* **url 태그** : url주소를 가지는 태그
+
+  * ```
+    <c:url var="home" value="/index.jsp"/>
+    <c:url var="login" value="/jsp_response/login.jsp">
+    	//데이터 보내기
+    	<c:param name="userid" value="gildong"></c:param>
+    </c:url>	
+    
+    //url 사용하기
+    <a href="${home}">홈</a>
+    <a href="${login}">로그인</a>
+    ```
+
+* **choose 태그** : switch문, if문과 비슷하게 사용
+
+  * ```
+    <c:set var="name" value="${param.name}"/>
+    <c:set var="age" value="${param.age}"/>
+    
+    <c:choose>
+    	<c:when test="${name=='hong'}">
+    		당신의 이름은 ${name}입니다.
+    	</c:when>
+    	<c:when test="%{age>20}">
+    		당신은 20세 이상입니다.
+    	</c:when>
+    	<c:otherwise>
+    		당신의 이름은 hong이 아니고 나이가 20세 이상이 아닙니다.
+    	</c:otherwise>
+    </c:choose>
+    ```
+
+* **redirect 태그** : 자동으로 페이지 이동하기 
+
+  * html의 Refresh, js의 location.href, jsp의 response.sendRedirect와 같음
+
+  * ```
+    <c:redirect url="/login.jsp">
+    	<c:param name="username">홍길동</c:param> //데이터보내기 가능
+    </c:redirect>
+    ```
+
+  
