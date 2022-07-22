@@ -70,4 +70,6 @@
 
   * response.getWriter() : 데이터 보낼(작성) 기능이 있는 메소드?
 
-    
+* servlet에 db연결하기
+
+  * 
